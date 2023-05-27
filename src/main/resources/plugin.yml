@@ -2,3 +2,7 @@ name: ThirdFirstPlugin
 version: '${project.version}'
 main: pl.accureter.thirdfirstplugin.ThirdFirstPlugin
 api-version: 1.19
+commands:
+  die:
+    description: Zabijesz się (SERIO)
+    usage: /<command>
