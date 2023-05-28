@@ -48,3 +48,5 @@ commands:
     description: Spawns an Armor Stand!
   gui:
     description: Opens a GUI
+  asgui:
+    description: Create an armor stand

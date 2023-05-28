@@ -35,12 +35,14 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("givetpbow").setExecutor(new GiveBowCommand(this));
         getCommand("armorstand").setExecutor(new ArmorStandCommand(this));
         getCommand("gui").setExecutor(new GUICommand(this));
+        getCommand("asgui").setExecutor(new ArmorStandGUICommand(this));
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerSpawnListener(this), this);
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
         getServer().getPluginManager().registerEvents(new TeleportBowListener(this), this);
         getServer().getPluginManager().registerEvents(new GUIListener(this), this);
+        getServer().getPluginManager().registerEvents(new ArmorStandGUIListener(this), this);
         //getServer().getPluginManager().registerEvents(new MoveListener(this), this);
         getConfig().options().copyDefaults();
         saveDefaultConfig();
