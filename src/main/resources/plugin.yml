@@ -6,3 +6,12 @@ commands:
   die:
     description: Zabijesz się (SERIO)
     usage: /<command>
+  god:
+    description: Zostań nieśmiertelny
+    usage: /<command>
+    aliases:
+      - accumode
+      - bozia
+  feed:
+    description: Nakarm się
+    usage: /<command>
