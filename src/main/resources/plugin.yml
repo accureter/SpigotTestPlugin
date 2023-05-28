@@ -27,3 +27,9 @@ commands:
   fart:
     description: Walisz bona na łeb
     usage: /<command> <player>
+  setspawn:
+    description: Ustawia spawnpoint
+    usage: /<command>
+  spawn:
+    description: Teleportuje do spawnu
+    usage: /<command>

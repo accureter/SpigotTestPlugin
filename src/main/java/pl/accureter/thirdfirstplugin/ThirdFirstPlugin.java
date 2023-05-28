@@ -11,21 +11,25 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pl.accureter.thirdfirstplugin.commands.*;
 import pl.accureter.thirdfirstplugin.events.PlayerDeath;
 import pl.accureter.thirdfirstplugin.events.PlayerMove;
+import pl.accureter.thirdfirstplugin.events.SpawnListener;
 
 public final class ThirdFirstPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
         // Plugin startup logic
-        Bukkit.getLogger().info("Siema skurwielu!");
-        Bukkit.getServer().getWorlds().get(0).setTime(1000);
+        getLogger().info("Siema skurwielu!");
+        getServer().getWorlds().get(0).setTime(1000);
         getCommand("god").setExecutor(new GodCommand());
         getCommand("feed").setExecutor(new FeedCommand());
         getCommand("config").setExecutor(new ConfigCommand());
         getCommand("repeat").setExecutor(new RepeatCommand(this));
         getCommand("fart").setExecutor(new FartCommand(this));
-        Bukkit.getServer().getPluginManager().registerEvents(new PlayerMove(), this);
-        Bukkit.getServer().getPluginManager().registerEvents(new PlayerDeath(this), this);
+        getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
+        getCommand("spawn").setExecutor(new SpawnCommand(this));
+        getServer().getPluginManager().registerEvents(new PlayerMove(), this);
+        getServer().getPluginManager().registerEvents(new PlayerDeath(this), this);
+        getServer().getPluginManager().registerEvents(new SpawnListener(this), this);
         getConfig().options().copyDefaults();
         saveDefaultConfig();
     }
