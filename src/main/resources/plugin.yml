@@ -44,3 +44,5 @@ commands:
     usage: /<command>
   givetpbow:
     description: Gives teleport bow!
+  armorstand:
+    description: Spawns an Armor Stand!

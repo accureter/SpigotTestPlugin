@@ -29,6 +29,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("menu").setExecutor(new MenuCommand(this));
         getCommand("fly").setExecutor(new FlyCommand(this));
         getCommand("givetpbow").setExecutor(new GiveBowCommand(this));
+        getCommand("armorstand").setExecutor(new ArmorStandCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerSpawnListener(this), this);
