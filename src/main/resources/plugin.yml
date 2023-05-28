@@ -46,3 +46,5 @@ commands:
     description: Gives teleport bow!
   armorstand:
     description: Spawns an Armor Stand!
+  gui:
+    description: Opens a GUI

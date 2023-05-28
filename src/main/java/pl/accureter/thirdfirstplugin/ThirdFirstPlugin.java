@@ -1,3 +1,7 @@
+/*
+ * Accureter Development Copyright (c) 2023.
+ */
+
 package pl.accureter.thirdfirstplugin;
 
 import org.bukkit.Bukkit;
@@ -30,11 +34,13 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("fly").setExecutor(new FlyCommand(this));
         getCommand("givetpbow").setExecutor(new GiveBowCommand(this));
         getCommand("armorstand").setExecutor(new ArmorStandCommand(this));
+        getCommand("gui").setExecutor(new GUICommand(this));
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerSpawnListener(this), this);
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
         getServer().getPluginManager().registerEvents(new TeleportBowListener(this), this);
+        getServer().getPluginManager().registerEvents(new GUIListener(this), this);
         //getServer().getPluginManager().registerEvents(new MoveListener(this), this);
         getConfig().options().copyDefaults();
         saveDefaultConfig();
