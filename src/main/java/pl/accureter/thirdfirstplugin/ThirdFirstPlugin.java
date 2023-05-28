@@ -22,7 +22,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getLogger().info("Siema skurwielu!");
         getServer().getWorlds().get(0).setTime(1000);
         getCommand("god").setExecutor(new GodCommand());
-        getCommand("feed").setExecutor(new FeedCommand());
+        getCommand("feed").setExecutor(new FeedCommand(this));
         getCommand("config").setExecutor(new ConfigCommand());
         getCommand("repeat").setExecutor(new RepeatCommand(this));
         getCommand("fart").setExecutor(new FartCommand(this));
