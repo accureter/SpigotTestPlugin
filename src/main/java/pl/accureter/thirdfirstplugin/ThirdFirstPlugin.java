@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.accureter.thirdfirstplugin.commands.FeedCommand;
 import pl.accureter.thirdfirstplugin.commands.GodCommand;
+import pl.accureter.thirdfirstplugin.events.PlayerMove;
 
 public final class ThirdFirstPlugin extends JavaPlugin {
 
@@ -20,6 +21,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         Bukkit.getServer().getWorlds().get(0).setTime(1000);
         getCommand("god").setExecutor(new GodCommand());
         getCommand("feed").setExecutor(new FeedCommand());
+        Bukkit.getServer().getPluginManager().registerEvents(new PlayerMove(), this);
     }
 
     @Override

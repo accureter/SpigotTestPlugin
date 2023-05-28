@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 public class PlayerMove implements Listener {
 
     @EventHandler
-    void onPlayerMove(PlayerMoveEvent event){
+    public void onPlayerMove(PlayerMoveEvent event){
         Player player = event.getPlayer();
         if (!player.hasPermission("thirdfirstplugin.move")){
             event.setCancelled(true);
