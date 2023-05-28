@@ -1,4 +1,4 @@
-package pl.accureter.thirdfirstplugin.events;
+package pl.accureter.thirdfirstplugin.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -7,11 +7,11 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import pl.accureter.thirdfirstplugin.ThirdFirstPlugin;
 
-public class PlayerDeath implements Listener {
+public class PlayerDeathListener implements Listener {
 
     ThirdFirstPlugin plugin;
 
-    public PlayerDeath(ThirdFirstPlugin plugin){
+    public PlayerDeathListener(ThirdFirstPlugin plugin){
         this.plugin = plugin;
     }
 

@@ -1,4 +1,4 @@
-package pl.accureter.thirdfirstplugin.events;
+package pl.accureter.thirdfirstplugin.listeners;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -8,10 +8,10 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import pl.accureter.thirdfirstplugin.ThirdFirstPlugin;
 
-public class SpawnListener implements Listener {
+public class PlayerSpawnListener implements Listener {
 
     ThirdFirstPlugin plugin;
-    public SpawnListener(ThirdFirstPlugin plugin){
+    public PlayerSpawnListener(ThirdFirstPlugin plugin){
         this.plugin = plugin;
     }
 

@@ -2,6 +2,9 @@ name: ThirdFirstPlugin
 version: '${project.version}'
 main: pl.accureter.thirdfirstplugin.ThirdFirstPlugin
 api-version: 1.19
+author: _Accureter
+description: Plugin made with Kody Simpson plugin tutorial series "Spigot Plugin Development"
+website: https://www.accureter.pl
 commands:
   die:
     description: Zabijesz się (SERIO)
@@ -35,4 +38,7 @@ commands:
     usage: /<command>
   menu:
     description: Otwiera menu
+    usage: /<command>
+  fly:
+    description: Latanie
     usage: /<command>

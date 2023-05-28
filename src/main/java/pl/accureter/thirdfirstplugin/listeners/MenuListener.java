@@ -1,4 +1,4 @@
-package pl.accureter.thirdfirstplugin.events;
+package pl.accureter.thirdfirstplugin.listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -6,7 +6,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import pl.accureter.thirdfirstplugin.ThirdFirstPlugin;
-import pl.accureter.thirdfirstplugin.commands.MenuCommand;
 
 public class MenuListener implements Listener {
 

@@ -9,10 +9,10 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.accureter.thirdfirstplugin.commands.*;
-import pl.accureter.thirdfirstplugin.events.MenuListener;
-import pl.accureter.thirdfirstplugin.events.PlayerDeath;
-import pl.accureter.thirdfirstplugin.events.PlayerMove;
-import pl.accureter.thirdfirstplugin.events.SpawnListener;
+import pl.accureter.thirdfirstplugin.listeners.MenuListener;
+import pl.accureter.thirdfirstplugin.listeners.PlayerDeathListener;
+import pl.accureter.thirdfirstplugin.listeners.PlayerMoveListener;
+import pl.accureter.thirdfirstplugin.listeners.PlayerSpawnListener;
 
 public final class ThirdFirstPlugin extends JavaPlugin {
 
@@ -21,6 +21,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         // Plugin startup logic
         getLogger().info("Siema skurwielu!");
         getServer().getWorlds().get(0).setTime(1000);
+        getServer().getWorlds().get(0).setClearWeatherDuration(Integer.MAX_VALUE);
         getCommand("god").setExecutor(new GodCommand());
         getCommand("feed").setExecutor(new FeedCommand(this));
         getCommand("config").setExecutor(new ConfigCommand());
@@ -29,9 +30,10 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
         getCommand("spawn").setExecutor(new SpawnCommand(this));
         getCommand("menu").setExecutor(new MenuCommand(this));
-        getServer().getPluginManager().registerEvents(new PlayerMove(), this);
-        getServer().getPluginManager().registerEvents(new PlayerDeath(this), this);
-        getServer().getPluginManager().registerEvents(new SpawnListener(this), this);
+        getCommand("fly").setExecutor(new FlyCommand(this));
+        getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerSpawnListener(this), this);
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
         getConfig().options().copyDefaults();
         saveDefaultConfig();
