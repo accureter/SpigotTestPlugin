@@ -1,0 +1,7 @@
+Food: 'Ziemniak'
+Number: 2115
+Boolean: false
+FoodList:
+  - 'Kotlet'
+  - 'Pizza'
+  - 'Mandarynka'

@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import pl.accureter.thirdfirstplugin.commands.ConfigCommand;
 import pl.accureter.thirdfirstplugin.commands.FeedCommand;
 import pl.accureter.thirdfirstplugin.commands.GodCommand;
 import pl.accureter.thirdfirstplugin.events.PlayerMove;
@@ -21,7 +22,10 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         Bukkit.getServer().getWorlds().get(0).setTime(1000);
         getCommand("god").setExecutor(new GodCommand());
         getCommand("feed").setExecutor(new FeedCommand());
+        getCommand("config").setExecutor(new ConfigCommand());
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerMove(), this);
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
     }
 
     @Override
@@ -40,6 +44,17 @@ public final class ThirdFirstPlugin extends JavaPlugin {
                 Bukkit.getLogger().warning("This command is only for Player (sent by Console)");
             } else if (sender instanceof BlockCommandSender) {
                 Bukkit.getLogger().warning("This command is only for Player (sent by CommandBlock)");
+            }
+        } else if (command.getName().equalsIgnoreCase("messageFromConfig")) {
+            if (sender instanceof Player player){
+                int number = getConfig().getInt("Number");
+                boolean Boolean = getConfig().getBoolean("Boolean");
+                String thirdItem = getConfig().getStringList("FoodList").get(2);
+                player.sendMessage(getConfig().getString("Food") + number + Boolean + thirdItem);
+            }
+        } else if (command.getName().equalsIgnoreCase("setFood")) {
+            if (sender instanceof Player player){
+                getConfig().set("Food", args[1]);
             }
         }
 

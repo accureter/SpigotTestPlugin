@@ -15,3 +15,9 @@ commands:
   feed:
     description: Nakarm się
     usage: /<command>
+  messageFromConfig:
+    description: Wypisz z configu
+    usage: /<command>
+  config:
+    description: Wypisz z configu
+    usage: /<command>
