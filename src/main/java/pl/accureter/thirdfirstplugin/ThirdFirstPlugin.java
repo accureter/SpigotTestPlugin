@@ -34,6 +34,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerSpawnListener(this), this);
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
         getServer().getPluginManager().registerEvents(new TeleportBowListener(this), this);
+        //getServer().getPluginManager().registerEvents(new MoveListener(this), this);
         getConfig().options().copyDefaults();
         saveDefaultConfig();
     }
