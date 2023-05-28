@@ -24,3 +24,6 @@ commands:
   repeat:
     description: Powtórzy co powiesz wtf
     usage: /<command> <args>
+  fart:
+    description: Walisz bona na łeb
+    usage: /<command> <player>

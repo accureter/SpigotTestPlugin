@@ -8,10 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import pl.accureter.thirdfirstplugin.commands.ConfigCommand;
-import pl.accureter.thirdfirstplugin.commands.FeedCommand;
-import pl.accureter.thirdfirstplugin.commands.GodCommand;
-import pl.accureter.thirdfirstplugin.commands.RepeatCommand;
+import pl.accureter.thirdfirstplugin.commands.*;
 import pl.accureter.thirdfirstplugin.events.PlayerDeath;
 import pl.accureter.thirdfirstplugin.events.PlayerMove;
 
@@ -26,6 +23,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("feed").setExecutor(new FeedCommand());
         getCommand("config").setExecutor(new ConfigCommand());
         getCommand("repeat").setExecutor(new RepeatCommand(this));
+        getCommand("fart").setExecutor(new FartCommand(this));
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerMove(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerDeath(this), this);
         getConfig().options().copyDefaults();
