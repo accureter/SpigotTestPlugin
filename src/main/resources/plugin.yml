@@ -42,3 +42,5 @@ commands:
   fly:
     description: Latanie
     usage: /<command>
+  givetpbow:
+    description: Gives teleport bow!

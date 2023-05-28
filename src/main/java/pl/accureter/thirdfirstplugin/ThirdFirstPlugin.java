@@ -9,10 +9,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.accureter.thirdfirstplugin.commands.*;
-import pl.accureter.thirdfirstplugin.listeners.MenuListener;
-import pl.accureter.thirdfirstplugin.listeners.PlayerDeathListener;
-import pl.accureter.thirdfirstplugin.listeners.PlayerMoveListener;
-import pl.accureter.thirdfirstplugin.listeners.PlayerSpawnListener;
+import pl.accureter.thirdfirstplugin.listeners.*;
 
 public final class ThirdFirstPlugin extends JavaPlugin {
 
@@ -31,10 +28,12 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("spawn").setExecutor(new SpawnCommand(this));
         getCommand("menu").setExecutor(new MenuCommand(this));
         getCommand("fly").setExecutor(new FlyCommand(this));
+        getCommand("givetpbow").setExecutor(new GiveBowCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerSpawnListener(this), this);
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
+        getServer().getPluginManager().registerEvents(new TeleportBowListener(this), this);
         getConfig().options().copyDefaults();
         saveDefaultConfig();
     }

@@ -5,3 +5,4 @@ FoodList:
   - 'Kotlet'
   - 'Pizza'
   - 'Mandarynka'
+give-bow-on-join: true
