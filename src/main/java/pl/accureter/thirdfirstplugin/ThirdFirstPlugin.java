@@ -9,6 +9,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.accureter.thirdfirstplugin.commands.*;
+import pl.accureter.thirdfirstplugin.events.MenuListener;
 import pl.accureter.thirdfirstplugin.events.PlayerDeath;
 import pl.accureter.thirdfirstplugin.events.PlayerMove;
 import pl.accureter.thirdfirstplugin.events.SpawnListener;
@@ -27,9 +28,11 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("fart").setExecutor(new FartCommand(this));
         getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
         getCommand("spawn").setExecutor(new SpawnCommand(this));
+        getCommand("menu").setExecutor(new MenuCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerMove(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeath(this), this);
         getServer().getPluginManager().registerEvents(new SpawnListener(this), this);
+        getServer().getPluginManager().registerEvents(new MenuListener(this), this);
         getConfig().options().copyDefaults();
         saveDefaultConfig();
     }

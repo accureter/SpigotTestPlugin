@@ -33,3 +33,6 @@ commands:
   spawn:
     description: Teleportuje do spawnu
     usage: /<command>
+  menu:
+    description: Otwiera menu
+    usage: /<command>
