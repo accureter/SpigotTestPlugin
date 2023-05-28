@@ -21,3 +21,6 @@ commands:
   config:
     description: Wypisz z configu
     usage: /<command>
+  repeat:
+    description: Powtórzy co powiesz wtf
+    usage: /<command> <args>
