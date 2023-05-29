@@ -58,3 +58,5 @@ commands:
     description: Reloads custom config
   sign:
     description: Create sign in player location
+  bangui:
+    description: Open ban GUI

@@ -6,15 +6,22 @@ package pl.accureter.thirdfirstplugin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.BlockCommandSender;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.accureter.thirdfirstplugin.commands.*;
 import pl.accureter.thirdfirstplugin.files.CustomConfig;
 import pl.accureter.thirdfirstplugin.listeners.*;
+
+import java.util.Collection;
+import java.util.List;
 
 public final class ThirdFirstPlugin extends JavaPlugin {
 
@@ -44,6 +51,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("customConfig").setExecutor(new CustomConfigCommand(this));
         getCommand("customConfigReload").setExecutor(new ReloadCustomConfigCommand(this));
         getCommand("sign").setExecutor(new SignCommand(this));
+        getCommand("bangui").setExecutor(new BanGUICommand(this));
 
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
@@ -53,6 +61,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GUIListener(this), this);
         getServer().getPluginManager().registerEvents(new ArmorStandGUIListener(this), this);
         getServer().getPluginManager().registerEvents(new SignListener(this), this);
+        getServer().getPluginManager().registerEvents(new BanGUIListener(this), this);
         //getServer().getPluginManager().registerEvents(new MoveListener(this), this);
 
         getConfig().options().copyDefaults();
