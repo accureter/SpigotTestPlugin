@@ -70,12 +70,5 @@
             <version>1.19.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>me.illuminatiproductions.actionbarpai</groupId>
-            <artifactId>actionbarapi</artifactId>
-            <scope>system</scope>
-            <version>1.5.4</version>
-            <systemPath>C:/Users/rager/Downloads/ActionBarAPI-1.5.4.jar</systemPath>
-        </dependency>
     </dependencies>
 </project>
