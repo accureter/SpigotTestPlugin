@@ -126,7 +126,7 @@ public class ArmorStandGUIListener implements Listener {
             event.setCancelled(true);
             if(!standHashMap.containsKey(player)) {
                 ArmorStand armorStand = (ArmorStand) player.getWorld().spawnEntity(player.getLocation(), EntityType.ARMOR_STAND);
-                armorStand.setInvisible(true);
+                armorStand.setVisible(false);
                 standHashMap.put(player, armorStand);
             }
             ArmorStand playerArmorStand = standHashMap.get(player);
@@ -146,7 +146,7 @@ public class ArmorStandGUIListener implements Listener {
                 }
                 case "Armor" -> {
                     if(standHashMap.containsKey(player)) {
-                        meta.setLore(List.of((playerArmorStand.getEquipment().getChestplate().getType().isAir() ? ChatColor.GREEN + "Enable Armor" : ChatColor.RED + "Disable Armor")));
+                        meta.setLore(List.of((!playerArmorStand.getEquipment().getChestplate().getType().isAir() ? ChatColor.GREEN + "Enable Armor" : ChatColor.RED + "Disable Armor")));
                         if(playerArmorStand.getEquipment().getChestplate().getType().isAir()){
                             playerArmorStand.getEquipment().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE));
                         }else {
@@ -162,7 +162,7 @@ public class ArmorStandGUIListener implements Listener {
                 }
                 case "Confirm & Save" -> {
                     player.closeInventory();
-                    playerArmorStand.setInvisible(false);
+                    playerArmorStand.setVisible(true);
                     player.playSound(player, Sound.ENTITY_ARMOR_STAND_PLACE, 1.0f, 1.0f);
                 }
                 case "Destroy" -> {
