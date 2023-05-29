@@ -52,3 +52,7 @@ commands:
     description: Create an armor stand
   hologram:
     description: Create a hologram
+  customConfig:
+    description: Sends a message from custom config
+  customConfigReload:
+    description: Reloads custom config

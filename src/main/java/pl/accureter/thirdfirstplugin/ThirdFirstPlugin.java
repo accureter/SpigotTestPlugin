@@ -13,6 +13,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.accureter.thirdfirstplugin.commands.*;
+import pl.accureter.thirdfirstplugin.files.CustomConfig;
 import pl.accureter.thirdfirstplugin.listeners.*;
 
 public final class ThirdFirstPlugin extends JavaPlugin {
@@ -20,9 +21,12 @@ public final class ThirdFirstPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+
         getLogger().info("Siema skurwielu!");
+
         getServer().getWorlds().get(0).setTime(1000);
         getServer().getWorlds().get(0).setClearWeatherDuration(Integer.MAX_VALUE);
+
         getCommand("god").setExecutor(new GodCommand());
         getCommand("feed").setExecutor(new FeedCommand(this));
         getCommand("config").setExecutor(new ConfigCommand());
@@ -37,6 +41,9 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("gui").setExecutor(new GUICommand(this));
         getCommand("asgui").setExecutor(new ArmorStandGUICommand(this));
         getCommand("hologram").setExecutor(new HologramCommand(this));
+        getCommand("customConfig").setExecutor(new CustomConfigCommand(this));
+        getCommand("customConfigReload").setExecutor(new ReloadCustomConfigCommand(this));
+
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerSpawnListener(this), this);
@@ -45,8 +52,15 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GUIListener(this), this);
         getServer().getPluginManager().registerEvents(new ArmorStandGUIListener(this), this);
         //getServer().getPluginManager().registerEvents(new MoveListener(this), this);
+
         getConfig().options().copyDefaults();
         saveDefaultConfig();
+
+        CustomConfig.setup();
+        CustomConfig.get().addDefault("message", "This is the default message!");
+        CustomConfig.get().options().copyDefaults(true);
+        CustomConfig.save();
+
     }
 
     @Override
