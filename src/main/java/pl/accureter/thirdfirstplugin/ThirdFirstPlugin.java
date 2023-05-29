@@ -52,6 +52,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new TeleportBowListener(this), this);
         getServer().getPluginManager().registerEvents(new GUIListener(this), this);
         getServer().getPluginManager().registerEvents(new ArmorStandGUIListener(this), this);
+        getServer().getPluginManager().registerEvents(new SignListener(this), this);
         //getServer().getPluginManager().registerEvents(new MoveListener(this), this);
 
         getConfig().options().copyDefaults();
