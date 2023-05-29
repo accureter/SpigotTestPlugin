@@ -43,6 +43,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("hologram").setExecutor(new HologramCommand(this));
         getCommand("customConfig").setExecutor(new CustomConfigCommand(this));
         getCommand("customConfigReload").setExecutor(new ReloadCustomConfigCommand(this));
+        getCommand("sign").setExecutor(new SignCommand(this));
 
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);

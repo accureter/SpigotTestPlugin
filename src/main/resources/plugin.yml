@@ -56,3 +56,5 @@ commands:
     description: Sends a message from custom config
   customConfigReload:
     description: Reloads custom config
+  sign:
+    description: Create sign in player location
