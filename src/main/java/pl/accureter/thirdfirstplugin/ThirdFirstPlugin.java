@@ -36,6 +36,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("armorstand").setExecutor(new ArmorStandCommand(this));
         getCommand("gui").setExecutor(new GUICommand(this));
         getCommand("asgui").setExecutor(new ArmorStandGUICommand(this));
+        getCommand("hologram").setExecutor(new HologramCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerSpawnListener(this), this);
