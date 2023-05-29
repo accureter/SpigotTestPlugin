@@ -48,12 +48,13 @@ public class ArmorStandGUIListener implements Listener {
         }
 
         if (event.getView().getTitle().equalsIgnoreCase(ChatColor.BLUE + "ArmorStand GUI")) {
+            event.setCancelled(true);
             switch (item.getType()) {
                 case ARMOR_STAND -> {
                     player.closeInventory();
-                    player.sendMessage("Opened Armor Stand Create Menu");
+                    player.sendMessage("Opened Armor Stand Create/Edit Menu");
 
-                    Inventory createMenu = Bukkit.createInventory(player, 9, ChatColor.GREEN + "Create an Armor Stand");
+                    Inventory createMenu = Bukkit.createInventory(player, 9, ChatColor.GREEN + "Create/Edit an Armor Stand");
 
                     ItemStack arms = new ItemStack(Material.ARMOR_STAND);
                     ItemMeta armsMeta = arms.getItemMeta();
@@ -121,7 +122,7 @@ public class ArmorStandGUIListener implements Listener {
                     player.sendMessage("Closing Main Menu");
                 }
             }
-        } else if (event.getView().getTitle().equalsIgnoreCase(ChatColor.GREEN + "Create an Armor Stand")) {
+        } else if (event.getView().getTitle().equalsIgnoreCase(ChatColor.GREEN + "Create/Edit an Armor Stand")) {
             event.setCancelled(true);
             if(!standHashMap.containsKey(player)) {
                 ArmorStand armorStand = (ArmorStand) player.getWorld().spawnEntity(player.getLocation(), EntityType.ARMOR_STAND);
