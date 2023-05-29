@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import pl.accureter.thirdfirstplugin.ThirdFirstPlugin;
-import pl.accureter.thirdfirstplugin.utility.BowUtils;
+import pl.accureter.thirdfirstplugin.utils.BowUtils;
 
 public class GiveBowCommand implements CommandExecutor {
 

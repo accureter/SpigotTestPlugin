@@ -2,7 +2,7 @@
  * Accureter Development Copyright (c) 2023.
  */
 
-package pl.accureter.thirdfirstplugin.utility;
+package pl.accureter.thirdfirstplugin.utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
