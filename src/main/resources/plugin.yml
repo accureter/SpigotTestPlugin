@@ -60,3 +60,5 @@ commands:
     description: Create sign in player location
   bangui:
     description: Open ban GUI
+  rtp:
+    description: Teleports in random location
