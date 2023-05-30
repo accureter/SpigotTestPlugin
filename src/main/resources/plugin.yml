@@ -5,6 +5,8 @@ api-version: 1.19
 author: _Accureter
 description: Plugin made with Kody Simpson plugin tutorial series "Spigot Plugin Development"
 website: https://www.accureter.pl
+depend:
+  - ActionBarAPI
 commands:
   die:
     description: Zabijesz się (SERIO)

@@ -4,6 +4,7 @@
 
 package pl.accureter.thirdfirstplugin.listeners;
 
+import de.ancash.actionbar.ActionBarAPI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,5 +24,6 @@ public class PlayerJoinListener implements Listener {
         for (Player vanishPlayer : plugin.vanishList){
             player.hidePlayer(plugin, vanishPlayer);
         }
+        ActionBarAPI.sendActionBar(player, "TEST");
     }
 }
