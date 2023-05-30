@@ -16,7 +16,11 @@ import pl.accureter.thirdfirstplugin.commands.*;
 import pl.accureter.thirdfirstplugin.files.CustomConfig;
 import pl.accureter.thirdfirstplugin.listeners.*;
 
+import java.util.HashSet;
+
 public final class ThirdFirstPlugin extends JavaPlugin {
+
+    public HashSet<Player> vanishList = new HashSet<>();
 
     @Override
     public void onEnable() {
@@ -46,6 +50,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("sign").setExecutor(new SignCommand(this));
         getCommand("bangui").setExecutor(new BanGUICommand(this));
         getCommand("rtp").setExecutor(new RandomTeleportCommand(this));
+        getCommand("vanish").setExecutor(new VanishCommand(this));
 
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
@@ -56,6 +61,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ArmorStandGUIListener(this), this);
         getServer().getPluginManager().registerEvents(new SignListener(this), this);
         getServer().getPluginManager().registerEvents(new BanGUIListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
         //getServer().getPluginManager().registerEvents(new MoveListener(this), this);
 
         getConfig().options().copyDefaults();

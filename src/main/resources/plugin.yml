@@ -62,3 +62,5 @@ commands:
     description: Open ban GUI
   rtp:
     description: Teleports in random location
+  vanish:
+    description: Vanishes you!
