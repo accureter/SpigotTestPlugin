@@ -14,10 +14,34 @@
     <properties>
         <java.version>16</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <downloadsPath>C:/Users/rager/Downloads/</downloadsPath>
+        <serverPath>D:/SPIGOT_SERVER/1.19.4/plugins/</serverPath>
     </properties>
 
     <build>
         <plugins>
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <configuration>
+                    <groupId>de.ancash</groupId>
+                    <artifactId>actionbar</artifactId>
+                    <version>1.0</version>
+                    <packaging>jar</packaging>
+                    <file>C:/Users/rager/Downloads/ActionBarAPI.jar</file>
+                    <generatePom>true</generatePom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install-jar-lib</id>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -31,6 +55,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
+                <configuration>
+                    <outputFile>${serverPath}/${project.artifactId}-${project.version}.jar</outputFile>
+                </configuration>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -75,7 +102,7 @@
             <artifactId>actionbar</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>C:/Users/rager/Downloads/ActionBarAPI.jar</systemPath>
+            <systemPath>${downloadsPath}/ActionBarAPI.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

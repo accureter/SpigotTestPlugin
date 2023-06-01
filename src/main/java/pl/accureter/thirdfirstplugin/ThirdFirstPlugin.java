@@ -51,6 +51,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("bangui").setExecutor(new BanGUICommand(this));
         getCommand("rtp").setExecutor(new RandomTeleportCommand(this));
         getCommand("vanish").setExecutor(new VanishCommand(this));
+        getCommand("tp").setExecutor(new TeleportCommand(this));
 
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
