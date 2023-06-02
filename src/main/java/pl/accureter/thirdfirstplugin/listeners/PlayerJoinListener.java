@@ -4,7 +4,11 @@
 
 package pl.accureter.thirdfirstplugin.listeners;
 
-import de.ancash.actionbar.ActionBarAPI;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
+import net.minecraft.server.network.ServerGamePacketListenerImpl;
+import org.bukkit.ChatColor;
+import org.bukkit.craftbukkit.v1_19_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,6 +28,12 @@ public class PlayerJoinListener implements Listener {
         for (Player vanishPlayer : plugin.vanishList){
             player.hidePlayer(plugin, vanishPlayer);
         }
-        ActionBarAPI.sendActionBar(player, "TEST");
+
+        String text = ChatColor.RED + "Welcome!";
+        Component chatComponent = Component.Serializer.fromJsonLenient(text);
+        ClientboundSetActionBarTextPacket packet = new ClientboundSetActionBarTextPacket(chatComponent);
+
+        ServerGamePacketListenerImpl connection = ((CraftPlayer) player.getPlayer()).getHandle().connection;
+        connection.send(packet);
     }
 }

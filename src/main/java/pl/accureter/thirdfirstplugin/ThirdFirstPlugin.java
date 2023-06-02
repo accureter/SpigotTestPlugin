@@ -52,6 +52,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("rtp").setExecutor(new RandomTeleportCommand(this));
         getCommand("vanish").setExecutor(new VanishCommand(this));
         getCommand("tp").setExecutor(new TeleportCommand(this));
+        getCommand("pluginTitle").setExecutor(new PacketTitleCommand(this));
 
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
