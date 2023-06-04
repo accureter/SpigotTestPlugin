@@ -53,6 +53,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getCommand("vanish").setExecutor(new VanishCommand(this));
         getCommand("tp").setExecutor(new TeleportCommand(this));
         getCommand("pluginTitle").setExecutor(new PacketTitleCommand(this));
+        getCommand("gameend").setExecutor(new GameEndCommand());
 
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
@@ -64,6 +65,7 @@ public final class ThirdFirstPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SignListener(this), this);
         getServer().getPluginManager().registerEvents(new BanGUIListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+        getServer().getPluginManager().registerEvents(new GameEndListener(this), this);
         //getServer().getPluginManager().registerEvents(new MoveListener(this), this);
 
         getConfig().options().copyDefaults();

@@ -70,3 +70,5 @@ commands:
     description: Sends title!
   sign2:
     description: test
+  gameend:
+    description: end the game
